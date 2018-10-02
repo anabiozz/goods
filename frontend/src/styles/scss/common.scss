@@ -134,16 +134,49 @@ table {
     border-spacing: 0;
 }
 
-html {
+html,
+body {
+    height: 100% !important;
     font-family: $primary_font;
 }
 
 nav {
-    background-color: $primary_color !important;
+    background-color: $navbar !important;
 }
 
 .no-shadows {
     box-shadow: none !important;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .brand-logo {
+            color: #000;
+            padding: 0;
+            margin: 0;
+            margin-left: 30px;
+            font-size: 35px;
+            font-family: $primary_font
+        }
+    }
+
+    .right {
+        a {
+            color: #000;
+            padding: 0;
+            margin: 0;
+            margin-right: 30px;
+            font-size: 25px;
+            font-family: $primary_font
+        }
+    }
 }
 
 .nav-wrapper {
@@ -166,9 +199,19 @@ nav {
 }
 
 .main-content {
+    padding: 0 !important;
     margin-top: 20px;
-    color: antiquewhite;
-    height: 1000px;
-    width: 100%;
-    background-color: #000;
+    min-height: 100vh !important;
+    display: flex;
+    flex-wrap: wrap;
+
+    .column {
+        flex: 25%;
+        height: auto;
+        img {
+            padding: 5px;
+            width: 100%;
+            vertical-align: middle;
+        }
+    }
 }

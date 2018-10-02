@@ -1,9 +1,14 @@
 // Colors
-$primary_color: #FFFFFF;
+$primary_color: #a0a85f;
+$navbar: #fff;
+$active_tab: #909755;
+$hover_tab: #b3b97e;
 $second_color: #2E2E2E;
-$borders_color: #2E2E2E;
-$borders_hover_color: #5a5858;
+$borders_color: #909755;
+$borders_hover_color: #5fa0a8;
 $primary_font: 'Montserrat', sans-serif;
 
 @import "common.scss";
 @import "tabs.scss";
+@import "footer.scss";
+@import "graphic.scss";
