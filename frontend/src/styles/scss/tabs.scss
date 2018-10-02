@@ -1,0 +1,47 @@
+.tabs {
+    width: 70% !important;
+    margin: 0;
+    display: flex;
+    justify-content: left;
+
+    .tab {
+        width: 20%;
+        font-size: 15px;
+        font-weight: 500;
+        background: #5CA4A9;
+
+        a {
+            font-family: $primary_font;
+            padding: 0;
+            color: #fff !important;
+        }
+    }
+}
+.tabs .tab a:hover  {
+    background-color: #B6D1CE !important;
+    // border-bottom: solid 2px  #F4F1BB;
+}
+
+.tabs .tab a:focus {
+    color: #000 !important;
+    background-color: #B6D1CE !important;
+    // border-bottom: solid 2px  #F4F1BB;
+}
+
+.tabs .tab a.active {
+    color: #000 !important;
+    background-color: #fff !important;
+    // border-bottom: solid 2px  #F4F1BB;
+}
+
+
+/*Text color on hover*/
+
+
+/*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    border-bottom: solid 2px #B6D1CE;
+}
+
+/*Color of underline*/

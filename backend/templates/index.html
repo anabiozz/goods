@@ -7,35 +7,73 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../static/styles/css/main.css" />
 </head>
 
 <body>
+    <nav class="nav-extended no-shadows">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Kondratieva Anastasia</a>
+        </div>
+    </nav>
+
+    <!-- TABS -->
+    <ul class="tabs">
+        <li class="tab">
+            <a class="active black-text" href="#graphic">Графика</a>
+        </li>
+        <li class="tab">
+            <a class="black-text" href="#pictorial-art">Живопись</a>
+        </li>
+        <li class="tab">
+            <a class="black-text" href="#film-sketches">Киноэскизы</a>
+        </li>
+        <li class="tab">
+            <a class="black-text" href="#storyboard">Раскадровка</a>
+        </li>
+        <li class="tab">
+            <a class="black-text" href="#sketchbook">Скетчбук</a>
+        </li>
+    </ul>
+    <!-- END TABS -->
+
     <div class="container">
         <div class="row">
 
-            <div class="col s2">
-                <nav>
-                    <div class="nav-wrapper">
-                        <ul id="nav-mobile" class="hide-on-med-and-down">
-                            <li><a href="sass.html">Sass</a></li>
-                            <li><a href="badges.html">Components</a></li>
-                            <li><a href="collapsible.html">JavaScript</a></li>
-                        </ul>
-                    </div>
-                </nav>
+            <div id="graphic" class="col s12 main-content">
+                <p>graphic</p>
             </div>
-
-            <div class="col s10">
-                <!-- Teal page content  -->
+            <div id="pictorial-art" class="col s12 main-content">
+                <p>pictorial-art</p>
+            </div>
+            <div id="film-sketches" class="col s12 main-content">
+                <p>film-sketches</p>
+            </div>
+            <div id="storyboard" class="col s12 main-content">
+                <p>storyboard</p>
+            </div>
+            <div id="sketchbook" class="col s12 main-content">
+                <p>sketchbook</p>
             </div>
 
         </div>
-    </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../static/scripts/bundle.js"></script>
+        <script type="text/javascript" src="../static/scripts/jquery-3.3.1.min.js"></script>
+        <script src="../static/scripts/materialize.min.js"></script>
+        <script src="../static/scripts/bundle.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('select').material_select();
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                $('.preloader-background').delay(500).fadeOut('slow');
+                $('.preloader-wrapper').delay(500).fadeOut();
+            });
+        </script>
 </body>
 
 </html>

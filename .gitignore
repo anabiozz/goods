@@ -1,0 +1,20 @@
+# FRONTEND
+frontend/node_modules/*
+frontend/src/styles/css/
+frontend/.sass-cache/*
+frontend/src/styles/css/*
+frontend/package-lock.json
+
+# BACKEND
+backend/static/styles/css/*
+!backend/static/styles/css/materialize.min.css
+backend/static/scripts/bundle.js
+
+# BINS
+adminka
+
+# VENDORS
+vendor/*
+Gopkg.*
+
+.vscode/*

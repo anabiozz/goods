@@ -38,5 +38,7 @@ func main() {
 		WriteTimeout: 5 * time.Second,
 	}
 
+	logger.Info("server run at localhost:8080")
+
 	logger.Fatal(srv.ListenAndServe())
 }
