@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/styles/css/main.css" />
+</head>
+
+<body>
+
+    <h1>{{.PageTitle}}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="imageContainer">
+                <img src="{{.thumbnailPath}}">
+
+            </div>
+
+            <div class="imageContainer">
+                <img width="630" src="{{.imagePath}}">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

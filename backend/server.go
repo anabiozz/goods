@@ -5,7 +5,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/anabiozz/goods/backend/api"
 	"github.com/anabiozz/goods/backend/common"
+	"github.com/anabiozz/goods/backend/common/asyncq"
 	"github.com/anabiozz/goods/backend/common/datastore"
 	"github.com/anabiozz/goods/backend/handlers"
 	"github.com/anabiozz/logger"
@@ -15,6 +17,8 @@ import (
 )
 
 func main() {
+
+	asyncq.StartTaskDispatcher(1)
 
 	logger.Init(os.Stdout, os.Stdout, os.Stderr, os.Stderr)
 
@@ -27,7 +31,13 @@ func main() {
 	env := common.Env{DB: db}
 
 	router := mux.NewRouter()
+	// Handlers
 	router.Handle("/", handlers.IndexHandler(&env))
+	router.HandleFunc("/upload-images", handlers.UploadImageHandler)
+
+	// API
+	router.Handle("/api/get-graphics", api.GetGraphicsHandler(&env))
+
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	srv := &http.Server{

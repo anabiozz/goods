@@ -27,8 +27,8 @@ func (p *PostgresDatastore) CreateUser(user *models.User) error {
 	return nil
 }
 
-// CreateProduct ..
-func (p *PostgresDatastore) CreateProduct(product *models.Product) error {
+// SaveImage ..
+func (p *PostgresDatastore) SaveImage(image *models.Image) error {
 	return nil
 }
 

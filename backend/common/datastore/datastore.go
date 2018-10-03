@@ -5,7 +5,7 @@ import "github.com/anabiozz/goods/backend/models"
 // Datastore ...
 type Datastore interface {
 	CreateUser(*models.User) error
-	CreateProduct(*models.Product) error
+	SaveImage(*models.Image) error
 	CloseDB()
 }
 
