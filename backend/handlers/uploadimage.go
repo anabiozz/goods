@@ -29,7 +29,7 @@ func DisplayUploadImageForm(w http.ResponseWriter, r *http.Request, u *UploadIma
 // ProcessUploadImage ..
 func ProcessUploadImage(w http.ResponseWriter, r *http.Request, u *UploadImageForm) {
 
-	shouldProcessThumbnailAsynchronously := true
+	shouldProcessThumbnailAsynchronously := false
 
 	file, fileheader, err := r.FormFile("imagefile")
 
@@ -46,8 +46,10 @@ func ProcessUploadImage(w http.ResponseWriter, r *http.Request, u *UploadImageFo
 
 		defer file.Close()
 
-		imageFilePathWithoutExtension := "./static/images/" + randomFileName
-		f, err := os.OpenFile(imageFilePathWithoutExtension+extension, os.O_WRONLY|os.O_CREATE, 0666)
+		fullImageFilePathWithoutExtension := "./static/images/graphics/full/" + randomFileName
+		previewImageFilePathWithoutExtension := "./static/images/graphics/preview/" + randomFileName
+
+		f, err := os.OpenFile(fullImageFilePathWithoutExtension+extension, os.O_WRONLY|os.O_CREATE, 0666)
 
 		if err != nil {
 			log.Println(err)
@@ -59,7 +61,7 @@ func ProcessUploadImage(w http.ResponseWriter, r *http.Request, u *UploadImageFo
 
 		// Note: Moved the thumbnail generation logic (commented out code block below) to the
 		// ImageResizeTask object in the tasks package.
-		thumbnailResizeTask := tasks.NewImageResizeTask(imageFilePathWithoutExtension, extension)
+		thumbnailResizeTask := tasks.NewImageResizeTask(fullImageFilePathWithoutExtension, previewImageFilePathWithoutExtension, extension)
 
 		if shouldProcessThumbnailAsynchronously == true {
 
@@ -71,8 +73,8 @@ func ProcessUploadImage(w http.ResponseWriter, r *http.Request, u *UploadImageFo
 		}
 
 		m := make(map[string]string)
-		m["thumbnailPath"] = strings.TrimPrefix(imageFilePathWithoutExtension, ".") + "_thumb.jpg"
-		m["imagePath"] = strings.TrimPrefix(imageFilePathWithoutExtension, ".") + ".jpg"
+		m["thumbnailPath"] = strings.TrimPrefix(previewImageFilePathWithoutExtension, ".") + "_thumb.jpg"
+		m["imagePath"] = strings.TrimPrefix(fullImageFilePathWithoutExtension, ".") + ".jpg"
 		m["PageTitle"] = "Image Preview"
 
 		RenderTemplate(w, "./templates/imagepreview.html", m)

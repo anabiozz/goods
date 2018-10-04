@@ -7,7 +7,6 @@ import (
 
 	"github.com/anabiozz/goods/backend/api"
 	"github.com/anabiozz/goods/backend/common"
-	"github.com/anabiozz/goods/backend/common/asyncq"
 	"github.com/anabiozz/goods/backend/common/datastore"
 	"github.com/anabiozz/goods/backend/handlers"
 	"github.com/anabiozz/logger"
@@ -18,7 +17,7 @@ import (
 
 func main() {
 
-	asyncq.StartTaskDispatcher(1)
+	// asyncq.StartTaskDispatcher(1)
 
 	logger.Init(os.Stdout, os.Stdout, os.Stderr, os.Stderr)
 
