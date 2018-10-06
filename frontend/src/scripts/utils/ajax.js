@@ -1,8 +1,8 @@
-export const ajaxGetGraphics = async () => {
+export const ajaxGetImages = async (imageType) => {
     let result
     try {
         result = await $.ajax({
-            url: "http://localhost:8080/get-graphics",
+            url: "http://localhost:8080/api/get-images?imageType=" + imageType,
             dataType: "json"
         })
         return result

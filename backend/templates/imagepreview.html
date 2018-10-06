@@ -14,19 +14,73 @@
 
 <body>
 
-    <h1>{{.PageTitle}}</h1>
-    <div class="container">
-        <div class="row">
-            <div class="imageContainer">
-                <img src="{{.thumbnailPath}}">
-
+    <nav class="nav-extended no-shadows">
+        <div class="nav-wrapper">
+            <div class="left">
+                <a href="/" class="brand-logo">Kondratieva Anastasia</a>
             </div>
-
-            <div class="imageContainer">
-                <img width="630" src="{{.imagePath}}">
+            <div class="right">
+                <a href="/me">Обо мне</a>
             </div>
         </div>
+    </nav>
+
+    <div class="container">
+        <div class="row images_row">
+            {{ range $index, $image := . }}
+            <div class="col s12 image_container">
+                <div class="image">
+                    <img alt="{{ $image.Name }}" src="/static/images/preview/{{ $image.Name }}_thumb.jpg">
+                </div>
+                <div class="image_info">
+                    <div class="input-field ">
+                        <input id="image_name" type="text">
+                        <label for="image_name">Название</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="image_materials" type="text">
+                        <label for="image_materials">Материалы</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="image_year" type="text">
+                        <label for="image_year">Год</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="image_size" type="text">
+                        <label for="image_size">Размер</label>
+                    </div>
+                    <div class="input-field">
+                        <select id="image_type">
+                            <option value="" disabled selected>Тип</option>
+                            <option value="0">Графика</option>
+                            <option value="1">Живопись</option>
+                            <option value="2">Киноэскизы</option>
+                            <option value="3">Раскадровка</option>
+                            <option value="4">Скетчбук</option>
+                        </select>
+                    </div>
+                    <label>
+                        <input id="checkbox" type="checkbox" class="filled-in checkbox_primary" />
+                        <span>Для продажи?</span>
+                    </label>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        <div class="row">
+            <button id="save_images" class="btn-large">Сохранить</button>
+        </div>
     </div>
+
+    <script type="text/javascript" src="../static/scripts/jquery-3.3.1.min.js"></script>
+    <script src="../static/scripts/materialize.min.js"></script>
+    <script src="../static/scripts/bundle.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
 </body>
 
 </html>

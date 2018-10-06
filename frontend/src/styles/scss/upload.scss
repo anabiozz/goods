@@ -1,0 +1,32 @@
+.row .col {
+    padding: 0;
+}
+
+.row .col.s12 {
+    margin: 0;
+}
+
+.image_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    border: 2px solid burlywood;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+
+    .image_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .image {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: $primary_color;
+    }
+}

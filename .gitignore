@@ -10,6 +10,11 @@ backend/static/styles/css/*
 !backend/static/styles/css/materialize.min.css
 backend/static/scripts/bundle.js
 
+backend/static/images/full/*.jpg
+backend/static/images/full/*.jpeg
+backend/static/images/preview/*.jpg
+backend/static/images/preview/*.jpeg
+
 # BINS
 adminka
 

@@ -33,9 +33,10 @@ func main() {
 	// Handlers
 	router.Handle("/", handlers.IndexHandler(&env))
 	router.HandleFunc("/upload-images", handlers.UploadImageHandler)
+	router.Handle("/save-images", handlers.SaveImagesHandler(&env))
 
 	// API
-	router.Handle("/api/get-graphics", api.GetGraphicsHandler(&env))
+	router.Handle("/api/get-images", api.GetImagesHandler(&env))
 
 	router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
@@ -47,7 +48,6 @@ func main() {
 		WriteTimeout: 5 * time.Second,
 	}
 
-	logger.Info("server run at localhost:8080")
-
+	logger.Info("server run at http://localhost:8080")
 	logger.Fatal(srv.ListenAndServe())
 }

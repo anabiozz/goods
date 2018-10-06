@@ -6,6 +6,8 @@ import "github.com/anabiozz/goods/backend/models"
 type Datastore interface {
 	CreateUser(*models.User) error
 	SaveImage(*models.Image) error
+	SaveImages([]*models.Image) error
+	GetImagesByType(imageType int) ([]models.Image, error)
 	CloseDB()
 }
 
